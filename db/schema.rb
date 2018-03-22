@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180322100854) do
+ActiveRecord::Schema.define(version: 20180322101147) do
 
   create_table "clips", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -77,6 +77,15 @@ ActiveRecord::Schema.define(version: 20180322100854) do
     t.index ["profile_id"], name: "index_travel_plans_on_profile_id", using: :btree
   end
 
+  create_table "user_jobtags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "job_tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_tag_id"], name: "index_user_jobtags_on_job_tag_id", using: :btree
+    t.index ["user_id"], name: "index_user_jobtags_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
@@ -98,4 +107,6 @@ ActiveRecord::Schema.define(version: 20180322100854) do
 
   add_foreign_key "clips", "users"
   add_foreign_key "travel_plans", "profiles"
+  add_foreign_key "user_jobtags", "job_tags"
+  add_foreign_key "user_jobtags", "users"
 end
