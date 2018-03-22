@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180322101147) do
+ActiveRecord::Schema.define(version: 20180322101747) do
+
+  create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "text",                   limit: 65535, null: false
+    t.string   "image",                                null: false
+    t.text     "comment",                limit: 65535, null: false
+    t.integer  "price",                                null: false
+    t.integer  "application_end_date_y",               null: false
+    t.integer  "application_end_date_m",               null: false
+    t.integer  "application_end_date_d",               null: false
+    t.integer  "company_id"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.index ["company_id"], name: "index_articles_on_company_id", using: :btree
+  end
 
   create_table "clips", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -105,6 +119,7 @@ ActiveRecord::Schema.define(version: 20180322101147) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "articles", "companies"
   add_foreign_key "clips", "users"
   add_foreign_key "travel_plans", "profiles"
   add_foreign_key "user_jobtags", "job_tags"
