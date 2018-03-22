@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180322101747) do
+ActiveRecord::Schema.define(version: 20180322103213) do
+
+  create_table "applications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "often_visiting_places", limit: 65535
+    t.text     "good_at_genre",         limit: 65535
+    t.integer  "user_id"
+    t.integer  "profile_id"
+    t.integer  "article_id"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["article_id"], name: "index_applications_on_article_id", using: :btree
+    t.index ["profile_id"], name: "index_applications_on_profile_id", using: :btree
+    t.index ["user_id"], name: "index_applications_on_user_id", using: :btree
+  end
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "text",                   limit: 65535, null: false
@@ -119,6 +132,9 @@ ActiveRecord::Schema.define(version: 20180322101747) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "applications", "articles"
+  add_foreign_key "applications", "profiles"
+  add_foreign_key "applications", "users"
   add_foreign_key "articles", "companies"
   add_foreign_key "clips", "users"
   add_foreign_key "travel_plans", "profiles"
