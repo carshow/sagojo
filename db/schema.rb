@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180322103601) do
+ActiveRecord::Schema.define(version: 20180322104018) do
 
   create_table "applications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "often_visiting_places", limit: 65535
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(version: 20180322103601) do
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
     t.index ["company_id"], name: "index_articles_on_company_id", using: :btree
+  end
+
+  create_table "articles_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "article_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["article_id"], name: "index_articles_categories_on_article_id", using: :btree
+    t.index ["category_id"], name: "index_articles_categories_on_category_id", using: :btree
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -142,6 +151,8 @@ ActiveRecord::Schema.define(version: 20180322103601) do
   add_foreign_key "applications", "profiles"
   add_foreign_key "applications", "users"
   add_foreign_key "articles", "companies"
+  add_foreign_key "articles_categories", "articles"
+  add_foreign_key "articles_categories", "categories"
   add_foreign_key "clips", "users"
   add_foreign_key "travel_plans", "profiles"
   add_foreign_key "user_jobtags", "job_tags"
