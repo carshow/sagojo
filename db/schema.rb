@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180322104018) do
+ActiveRecord::Schema.define(version: 20180322104800) do
 
   create_table "applications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "often_visiting_places", limit: 65535
@@ -154,6 +154,7 @@ ActiveRecord::Schema.define(version: 20180322104018) do
   add_foreign_key "articles_categories", "articles"
   add_foreign_key "articles_categories", "categories"
   add_foreign_key "clips", "users"
+  add_foreign_key "profiles", "users"
   add_foreign_key "travel_plans", "profiles"
   add_foreign_key "user_jobtags", "job_tags"
   add_foreign_key "user_jobtags", "users"
