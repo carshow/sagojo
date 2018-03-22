@@ -10,7 +10,66 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180322074600) do
+ActiveRecord::Schema.define(version: 20180322095143) do
+
+  create_table "clips", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_clips_on_user_id", using: :btree
+  end
+
+  create_table "companies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",       null: false
+    t.string   "email",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",                         null: false
+    t.string   "avatar"
+    t.string   "background_image"
+    t.string   "catch_phrase"
+    t.integer  "birth_date_y"
+    t.integer  "birth_date_m"
+    t.integer  "birth_date_d"
+    t.integer  "sex"
+    t.integer  "phone_number"
+    t.integer  "postal_code"
+    t.string   "region"
+    t.string   "city"
+    t.string   "adress"
+    t.string   "building_name"
+    t.string   "you_are_here"
+    t.string   "private_link"
+    t.text     "page_view",         limit: 65535
+    t.string   "sns"
+    t.text     "follower",          limit: 65535
+    t.text     "occupations",       limit: 65535
+    t.text     "language_skill",    limit: 65535
+    t.text     "experience",        limit: 65535
+    t.text     "travel_history",    limit: 65535
+    t.text     "detailed_skill",    limit: 65535
+    t.text     "achievement",       limit: 65535
+    t.string   "income"
+    t.text     "prepratatory_time", limit: 65535
+    t.text     "travel_purpose",    limit: 65535
+    t.text     "introduction",      limit: 65535
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
+  end
+
+  create_table "travel_plans", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "departure_time",               null: false
+    t.string   "return_time",                  null: false
+    t.text     "destination",    limit: 65535, null: false
+    t.integer  "profile_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["profile_id"], name: "index_travel_plans_on_profile_id", using: :btree
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at",                          null: false
@@ -31,4 +90,6 @@ ActiveRecord::Schema.define(version: 20180322074600) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "clips", "users"
+  add_foreign_key "travel_plans", "profiles"
 end
