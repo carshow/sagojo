@@ -1,14 +1,15 @@
 .header#header-01
   .header-inner
     .header-logo
-      %img.header-logo__img{src: "https://d1te0bovbq6epg.cloudfront.net/common/img/logo.svg", alt: "SAGOJO"}
-      %p.header-logo__string すごいSEの模倣サイト - ホンショー
+      = link_to root_path do
+        %img.header-logo__img{src: "https://d1te0bovbq6epg.cloudfront.net/common/img/logo.svg", alt: "SAGOJO"}
+        %p.header-logo__string すごいSEの模倣サイト - ホンショー
     %nav.header-globalnav-01
       %ul.header-list
         %li.header-list__item
-          ホーム
+          = link_to "ホーム", root_path
         %li.header-list__item
-          シゴト
+          = link_to "シゴト", articles_recommend_path
         %li.header-list__item
           すごい旅研究所
         %li.header-list__item
