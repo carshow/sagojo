@@ -7,4 +7,7 @@ class ArticlesController < ApplicationController
 
   def show
   end
+
+  def beginner
+  end
 end
