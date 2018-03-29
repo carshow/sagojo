@@ -3,4 +3,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'articles#index'
   get "articles/recommend" => "articles#recommend"
+  get "beginner" => "articles#beginner"
+  resources :articles
+
+  get "showlabo/latest" => "sholabos#index"
+  get "FAQ" => "articles#faq"
 end

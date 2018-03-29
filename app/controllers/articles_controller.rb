@@ -10,4 +10,7 @@ class ArticlesController < ApplicationController
 
   def beginner
   end
+
+  def faq
+  end
 end
