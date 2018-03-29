@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :articles
 
   get "showlabo/latest" => "sholabos#index"
+  get "FAQ" => "articles#faq"
 end
