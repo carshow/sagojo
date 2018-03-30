@@ -53,9 +53,10 @@
     a {
       text-decoration: none;
       color: $light_black;
-      &:hover {
-        opacity: 0.8;
-      }
+      &:link{opacity: 1.0;}
+      &:visited{opacity: 1.0;}
+      &:hover {opacity: 0.6;}
+      &:active{opacity: 1.0;}
     }
   }
 }

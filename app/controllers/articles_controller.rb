@@ -13,4 +13,7 @@ class ArticlesController < ApplicationController
 
   def faq
   end
+
+  def business
+  end
 end

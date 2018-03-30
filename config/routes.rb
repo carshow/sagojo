@@ -8,4 +8,5 @@ Rails.application.routes.draw do
 
   get "showlabo/latest" => "sholabos#index"
   get "FAQ" => "articles#faq"
+  get "business" => "articles#business"
 end

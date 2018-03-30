@@ -2,7 +2,7 @@
   .inner
     %ul.nav4_ul
       %li.list_1
-        %a.list_1__a
+        = link_to beginner_path, class: "list_2__a" do
           %image.list1__image{ src: "https://d1te0bovbq6epg.cloudfront.net/common/img/img-subnav-list-01.svg" }
           %dl.list_1__dl
             %dt.list_1__dt
@@ -11,7 +11,7 @@
               こちら
             %dd.list_1__dd HonShoの使い方を確認しよう
       %li.list_2
-        %a.list_2__a
+        = link_to business_path, class: "list_2__a" do
           %image.list_2__image{ src: "https://d1te0bovbq6epg.cloudfront.net/common/img/img-subnav-list-02.svg" }
           %dl.list_2__dl
             %dt.list_2__dt
@@ -23,7 +23,7 @@
               %br
               ご確認ください
       %li.list_3
-        %a.list_3__a
+        = link_to "/FAQ", class: "list_3__a" do
           %image.list_3__image{ src: "https://d1te0bovbq6epg.cloudfront.net/common/img/img-subnav-list-03.svg" }
           %dl.list_3__dl
             %dt.list_3__dt FAQ

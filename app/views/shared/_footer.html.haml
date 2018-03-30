@@ -6,11 +6,11 @@
         主な機能
         %ul.smaller-ul
           %li.smaller-li
-            %a ホーム
+            = link_to "ホーム", root_path
           %li.smaller-li
-            %a シゴト
+            = link_to "シゴト", articles_recommend_path
           %li.smaller-li
-            %a すごい旅研究所
+            = link_to "すごい旅研究所", showlabo_latest_path
           %li.smaller-li
             %a ログイン
           %li.smaller-li
@@ -19,11 +19,11 @@
         HonShoについて
         %ul.smaller-ul
           %li.smaller-li
-            %a はじめての方はこちら
+            = link_to "はじめての方はこちら", beginner_path
           %li.smaller-li
-            %a FAQ
+            = link_to "FAQ", "/FAQ"
           %li.smaller-li
-            %a 企業の方はこちら
+            = link_to "企業の方はこちら", business_path
           %li.smaller-li
             %a 仲間になる
           %li.smaller-li
