@@ -1,0 +1,127 @@
+= render 'shared/header'
+.business-eyecatch
+  .inner
+    %h1.pc 企業の方へ
+    %p.eyecatch-lead
+      世界120ヵ国、8853人の旅人が、
+      %br
+      あなたのビジネスをお手伝いします
+    %p.pc.line
+      海外や地方など、Web上にないローカルな情報がほしい、
+      %br
+      もっと様々な地域で自社製品のプロモーションをしたい、
+      %br
+      海外や地方に関するお仕事ならHonShoへ
+    %p
+      %a.business-header
+        今すぐ問い合わせる
+.business-main-content
+  .inner
+    .nightley_apply
+      = image_tag("nightley_banner02.jpg")
+      .text
+        %h2
+          HonShoの旅人は日本各地、
+          %br
+          世界各国を移動しています
+        %p
+          %br
+          メールアドレス、企業名を入力して旅人の位置を見る
+        %form
+          %textarea{ name: "企業名", placeholder: "企業名", rows:"1"}
+          %input.business-mail{ placeholder: "メールアドレス",rows: "1" }
+          %button.submit{ value: "旅人の位置情報を見る"}
+            旅人の位置情報を見る
+  .introduction-example
+    %h2
+      導入社数25社突破！
+    %ul
+      %li
+        = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/business/new/10.png")
+      %li
+        = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/business/new/02.png")
+      %li
+        = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/business/new/03.png")
+      %li
+        = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/business/new/04.png")
+      %li
+        = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/business/new/05.png")
+      %li
+        = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/business/new/06.png")
+      %li
+        = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/business/new/07.png")
+      %li
+        = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/business/new/08.png")
+      %li
+        = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/business/new/09.png")
+      %li
+        = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/business/new/01.png")
+  %article.business-article
+    .inner
+      %h2
+        世界120ヵ国、8854人の旅人が、
+        %br
+        あなたのビジネスをお手伝いします
+      %ul
+        %li
+          =image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/business/business_contents.svg")
+          .right-article
+            %h3 コンテンツ制作
+            %p
+              旅人しか知らないローカルスポット、現地の文化のリアルな姿、世界でただひとつのコンテンツをご提供します。
+            %a.yellow-button
+              詳細はこちら
+        %li
+          =image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/business/business_news.svg")
+          .right-article
+            %h3 旅人通信社
+            %p
+              1泊2,000円以下で泊まれる宿、世界の変わったコンセプトのお店など、Webには流れないローカルな情報を旅人が世界中から集めます。
+            %a.yellow-button
+              詳細はこちら
+        %li
+          =image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/business/business_instagram.svg")
+          .right-article
+            %h3
+              Instagram
+              %br
+              プロモーション
+            %p
+              旅人インスタグラマーが世界中の風景と組み合わせてあなたの商品のプロモーションを行います。
+            %a.yellow-button
+              詳細はこちら
+        %li
+          =image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/business/business_investigation.svg")
+          .right-article
+            %h3
+              調査
+            %p
+              様々な地域の飲食店や施設、人々の動向などローカルな情報を旅人が足を使って調査いたします。
+            %a.blue-button
+              今すぐ問い合わせる
+        %li
+          =image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/business/business_buyer.svg")
+          .right-article
+            %h3
+              バイヤー
+            %p
+              日本では高額だったり手に入らないその土地ならではの商品を旅人が買い付けます。
+            %a.blue-button
+              今すぐ問い合わせる
+
+  .business-bottom
+    .inner
+      %h2
+        上記プラン以外のご相談も受け付けております。
+        %br
+        まずはお気軽にお問い合わせください。
+      %p
+        %a.business-header.bottom-button
+          今すぐ問い合わせる
+= render 'shared/navi2'
+.footer
+  .footer-inner
+    = render 'shared/footer'
+    = render 'shared/footer-copyright'
+
+
