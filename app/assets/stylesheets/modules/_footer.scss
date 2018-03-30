@@ -42,6 +42,11 @@
       margin-top: 12px;
       color: #808080;
       font-weight: normal;
+      a{text-decoration: none;}
+      a:link{color: #808080;}
+      a:visited{color: #808080;}
+      a:hover{color: lighten(#808080,20%);}
+      a:active{color: #808080;}
     }
   }
 }
