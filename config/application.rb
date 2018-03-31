@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Sagojo
   class Application < Rails::Application
+    config.i18n.default_locale = :ja
     config.generators do |g|
       g.assets     false
       g.helper     false

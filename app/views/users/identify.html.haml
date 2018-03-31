@@ -1,0 +1,21 @@
+.account-send-box
+  .account-box__image
+    = image_tag "icon-mail.svg"
+  %p.account-box__title
+    メールを送信しました
+  %p.account-box__text
+    %span まだ認証は完了していません。
+    %br/
+    入力されたメールアドレスに、メールを送信しました。
+    %br/
+    メールをご確認いただき、認証を進めてください。
+    %br/
+    %br/
+    しばらくしてもメールが届かない場合は、
+    %br/
+    %a{href: "/"}> HonSho事務局
+    にご連絡ください。
+    %br/
+
+= render "users/copyright"
+
