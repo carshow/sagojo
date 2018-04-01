@@ -1,0 +1,23 @@
+.account-cover
+  .account-box
+    .account-box__image
+      = image_tag 'icon-sagojokun-01.svg'
+    %p.account-box__title
+      企業様用
+      %br
+      アカウントを入力してログイン
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .account-box__field.account-box__field__fb
+        %p.account-box__field__facebook
+          %i.fab.fa-facebook-f
+            FACEBOOKで ログイン
+      .account-box__field
+        = f.email_field :email, placeholder: "メールアドレス", autofocus: true, autocomplete: "email", class: "account-box__field__form", id: "email_session"
+      .account-box__field
+        = f.password_field :password, placeholder: "パスワード", autocomplete: "off", class: "account-box__field__form", id: "password_session"
+      .account-box__field
+        = f.submit "ログイン", class: "account-box__field__action"
+  - if company_signed_in?
+    - redirect_to root_path
+
+  = render "users/copyright"

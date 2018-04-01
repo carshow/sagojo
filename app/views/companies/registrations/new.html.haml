@@ -1,0 +1,29 @@
+.account-cover
+  .account-box
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = devise_error_messages!
+      .account-box__image
+        = image_tag 'icon-tabibito-01.svg'
+      %p.account-box__title
+        企業として登録
+      .account-box__field
+        / <haml_loud> f.label :name </haml_loud><br />
+        = f.text_field :name, autofocus: true, autocomplete: "name", class: "account-box__field__form", placeholder: "会社名", id: "name"
+      %p.name-announce
+        キャリアのアドレスは登録確認メールが届かない事がございます。
+        %br/
+        gmailなどのアドレスをお使いください。
+      .account-box__field
+        / <haml_loud> f.label :email </haml_loud><br />
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: "account-box__field__form", placeholder: "メールアドレス", id: "email"
+      .account-box__field
+        / <haml_loud> f.label :password </haml_loud>
+        = f.password_field :password, autocomplete: "off", class: "account-box__field__form", placeholder: "パスワード", id: "password"
+      %p.pass-length
+        パスワードは6文字以上にしてください
+      .account-box__field
+        / <haml_loud> f.label :password_confirmation </haml_loud><br />
+        = f.password_field :password_confirmation, autocomplete: "off", class: "account-box__field__form", placeholder: "パスワード確認", id: "re-password"
+      .account-box__field
+        = f.submit "メールアドレスで企業登録", class: "account-box__field__action account-box__field__action__sign-in"
+  = render "users/copyright"
