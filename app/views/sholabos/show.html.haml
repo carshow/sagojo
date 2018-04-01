@@ -1,0 +1,16 @@
+= render 'shared/header'
+.show-main-wrapper
+  = render 'sholabos/sholabo-header'
+  .show-main-content
+    .show-left-content
+      .show-left-inner
+        = render 'sholabos/show_main_left'
+        = render 'works/show_recommended_work'
+    .show-right-content
+      = render 'sholabos/show_right_comment'
+= render 'shared/navi4'
+= render 'shared/navi2'
+.footer
+  .footer-inner
+    = render 'shared/footer'
+    = render 'shared/footer-copyright'
