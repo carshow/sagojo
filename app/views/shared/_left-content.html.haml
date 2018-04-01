@@ -31,6 +31,10 @@
           .inner-02
             %img.inner-02__image{ src: "https://d1te0bovbq6epg.cloudfront.net/common/img/icon-object.svg" }
             %p.inner-02__p 他リターンあり
-    .like-link
-      = image_tag 'img_star_off', class: 'unlike-btn', id: "star"
-
+    - if user_signed_in?
+      .like_box
+        = render partial: "shared/like_link", locals:{article: article}
+    - else
+      = link_to new_user_session_path do
+        .like-link
+          = image_tag 'img_star_off', class: 'unlike-btn', id: "star"

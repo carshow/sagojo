@@ -1,8 +1,8 @@
 class Article < ApplicationRecord
   belongs_to :company
   has_many :categories, through: :articles_categories
-  has_many :users, through: :users
-  has_many :application
+  has_many :users, through: :clips
+  has_many :clips
 
   validates :text, presence: true
   validates :image, presence: true

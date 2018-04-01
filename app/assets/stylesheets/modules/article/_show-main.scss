@@ -245,6 +245,37 @@
   }
 }
 
+.application-dislike {
+  float: left;
+  margin-right: 20px;
+  &__upper {
+    align-items: center;
+    background-color: $white;
+    border: 1.5px solid $light_gray;
+    border-radius: 65px;
+    box-sizing: border-box;
+    color: $black;
+    display: flex;
+    font-size: 0.9rem;
+    font-weight: bold;
+    height: 65px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    width: 230px;
+    &:before {
+      background: url(/assets/img_star_on-a3b6b378c0ea6122b4bd93c4ce77ea5885b1e726e2e7867537cc5775e20a9572.svg);
+      background-color: #ffcb00;
+      background-position: center center;
+      background-repeat: no-repeat;
+      border-radius: 36px;
+      content: "";
+      height:36px;
+      margin: 0 10px;
+      width:36px;
+    }
+  }
+}
+
 .application-apply {
   float: left;
   &__upper {

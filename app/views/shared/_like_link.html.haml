@@ -1,0 +1,7 @@
+.like-link{id: "like-link-#{article.id}"}
+  - if current_user.clips.find_by(article_id: article.id)
+    = link_to  dislike_path(article.id), method: :delete, remote: true do
+      = image_tag 'img_star_on', class: 'like-btn', id: "star-#{article.id}"
+  - else
+    = link_to like_path(article.id), method: :post, remote: true do
+      = image_tag 'img_star_off', class: 'unlike-btn', id: "star-#{article.id}"
