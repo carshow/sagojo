@@ -2,17 +2,20 @@ class ClipsController < ApplicationController
   before_action :set_variables, only: [:create, :destroy]
 
   def create
-    @clip = current_user.clips.new(article_id: @article.id)
+    @clip = current_user.clips.create(article_id: @article.id)
 
-    if @clip.save
-      redirect_to root_path
+    respond_to do |format|
+      format.html { redirect_to article_path(@article) }
+      format.js
     end
   end
 
   def destroy
     @clip = current_user.clips.find_by(article_id: @article.id)
-     if @clip.destroy
-      redirect_to root_path
+    @clip.destroy
+    respond_to do |format|
+      format.html { redirect_to article_path(@article) }
+      format.js
     end
 
   end
@@ -20,5 +23,7 @@ class ClipsController < ApplicationController
 
   def set_variables
     @article = Article.find(params[:article_id])
+    @id_name = "#like-link-#{@article.id}"
+    @star_name = "#star-#{@article.id}"
   end
 end
