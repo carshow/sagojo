@@ -8,7 +8,6 @@ class CreateArticles < ActiveRecord::Migration[5.0]
       t.integer :application_end_date_y, null: false
       t.integer :application_end_date_m, null: false
       t.integer :application_end_date_d, null: false
-      t.references :company, foreign_key: true
       t.timestamps
     end
   end
