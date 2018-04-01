@@ -1,0 +1,49 @@
+.apply_main{
+  padding-top: 120px;
+}
+.apply_header_title{
+  font-weight: initial;
+  border-left: solid 5px #ffcb00;
+  font-size: 18px;
+  letter-spacing: 2.4px;
+  margin-bottom: 30px;
+  line-height: 1.4;
+  margin-left: 200px;
+  padding-left:10px;
+}
+
+.favorite_articles{
+  position: relative;
+  .job-thumnail{
+    margin-left: 200px;
+    margin-bottom: 20px;
+   }
+}
+.go_apply{
+    margin-left: 895px;
+    position: absolute;
+    top: 0;
+    display: inline-block;
+    width: 397px;
+    height: 260px;
+    text-align: center;
+    float: right;
+    background-color: #fff;
+    margin-bottom: 10px;
+    .work_info{
+      margin-top: 55px;
+      margin-bottom: 10px;
+      font-size: 11px;
+      line-height: 1.27;
+      color: #aeaeae;
+      span{
+        color: #ffcb00;
+        font-size: 20px;
+      }
+    }
+      .btn{
+        margin-top: 15px;
+        font-size: 15px;
+        width: 50%;
+      }
+}
