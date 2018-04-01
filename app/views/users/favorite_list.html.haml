@@ -1,53 +1,65 @@
 = render 'shared/header'
-.apply_main
-  %p.apply_header_title お気に入り一覧
-  - @clips.each do |clip|
-    - article = Article.find(clip.article_id)
-    = link_to article_path(article) do
-      .favorite_articles
-        .job-thumnail
-          .job-thumnail-btn
-            = image_tag (article.image), class: "job-thumnail__image", alt: "画像なし"
-            %span.job-thumnail__content
-              .job-thumnail__content--company
-                %img.job-thumnail__content--company-image{ src: "https://d1te0bovbq6epg.cloudfront.net/common/img/icon-company.svg" }
-                %span.job-thumnail__content--company-name
-                  = article.company.name
-              %h3.job-thumnail__content--job-title
-                = article.title
-              %p.job-thumnail__content--thum-job-desc
-                = article.overview
-              %p.job-thumnail__content--thum-job-utility
-                募集終了まで
-                %span.job-thumnail__content--thum-job-utility.remaining-days
-                  = deadline_for_article(article.end_of_date)
-                %span.job-thumnail__content--thum-job-utility
-                  日 | 100万 view
-              .thum-job-taglist
-                %img.thum-job-taglist__image{ src: "https://d1te0bovbq6epg.cloudfront.net/common/img/icon-tag-01.svg" }
-                %ul.thum-job-taglist__ul
-                  %li
-                    %img.thum-job-taglist__ul--image{ src: "https://d1te0bovbq6epg.cloudfront.net/common/img/icon-tag-02.svg" }
-                    %p.thum-job-taglist__ul--li 動画
-              .thum-job-return
-                .inner-01
-                  %img.inner-01__image{ src: "https://d1te0bovbq6epg.cloudfront.net/common/img/icon-money.svg" }
-                  %p.inner-01__p
-                    = article.price
-                .inner-02
-                  %img.inner-02__image{ src: "https://d1te0bovbq6epg.cloudfront.net/common/img/icon-object.svg" }
-                  %p.inner-02__p 他リターンあり
-          .like_box
-            = render partial: "shared/like_link", locals:{article: article}
-        .go_apply
-          %p.work_info
-            募集終了まで
-            %span
-              = deadline_for_article(article.end_of_date)
-            日
-          = link_to article_path(article) do
-            %p.btn
-              応募画面に進む
+- if @clips.present?
+  .apply_main
+    %p.apply_header_title お気に入り一覧
+    - @clips.each do |clip|
+      - article = Article.find(clip.article_id)
+      = link_to article_path(article) do
+        .favorite_articles
+          .job-thumnail
+            .job-thumnail-btn
+              = image_tag (article.image), class: "job-thumnail__image", alt: "画像なし"
+              %span.job-thumnail__content
+                .job-thumnail__content--company
+                  %img.job-thumnail__content--company-image{ src: "https://d1te0bovbq6epg.cloudfront.net/common/img/icon-company.svg" }
+                  %span.job-thumnail__content--company-name
+                    = article.company.name
+                %h3.job-thumnail__content--job-title
+                  = article.title
+                %p.job-thumnail__content--thum-job-desc
+                  = article.overview
+                %p.job-thumnail__content--thum-job-utility
+                  募集終了まで
+                  %span.job-thumnail__content--thum-job-utility.remaining-days
+                    = deadline_for_article(article.end_of_date)
+                  %span.job-thumnail__content--thum-job-utility
+                    日 | 100万 view
+                .thum-job-taglist
+                  %img.thum-job-taglist__image{ src: "https://d1te0bovbq6epg.cloudfront.net/common/img/icon-tag-01.svg" }
+                  %ul.thum-job-taglist__ul
+                    %li
+                      %img.thum-job-taglist__ul--image{ src: "https://d1te0bovbq6epg.cloudfront.net/common/img/icon-tag-02.svg" }
+                      %p.thum-job-taglist__ul--li 動画
+                .thum-job-return
+                  .inner-01
+                    %img.inner-01__image{ src: "https://d1te0bovbq6epg.cloudfront.net/common/img/icon-money.svg" }
+                    %p.inner-01__p
+                      = article.price
+                  .inner-02
+                    %img.inner-02__image{ src: "https://d1te0bovbq6epg.cloudfront.net/common/img/icon-object.svg" }
+                    %p.inner-02__p 他リターンあり
+            .like_box
+              = render partial: "shared/like_link", locals:{article: article}
+          .go_apply
+            %p.work_info
+              募集終了まで
+              %span
+                = deadline_for_article(article.end_of_date)
+              日
+            = link_to article_path(article) do
+              %p.btn
+                応募画面に進む
+- else
+  .apply_main
+    %p.apply_header_title お気に入り一覧
+    .nonfavorite_message
+      %h2
+        気になったシゴトや再募集してほしいシゴトは、どんどん
+        %br
+        お気に入りリストに追加していきましょう！
+      %h3
+        応募締切が近づいた時や、シゴトが再募集になった際、連絡が届きます。
+      = image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/artboard.png")
 .footer
   .footer-inner
     = render 'shared/footer'
