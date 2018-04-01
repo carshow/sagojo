@@ -10,4 +10,8 @@ class UsersController < ApplicationController
 
   def identify
   end
+
+  def favorite_list
+    @clips = Clip.where(user_id: current_user.id).all
+  end
 end
