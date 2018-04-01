@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :applications
   has_many :job_tags, through: :user_jobtags
   has_many :articles, through: :clips
+  has_many :clips, dependent: :destroy
 
   validates :check_box, acceptance: true
 end
