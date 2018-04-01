@@ -46,6 +46,9 @@
   border-radius: 100px;
   margin: 0 auto;
 }
+.business-header:hover{
+  opacity: 0.9;
+}
 
 
 
@@ -113,6 +116,9 @@
     box-sizing: border-box;
     text-align: center;
     cursor: pointer;
+  }
+  .submit:hover{
+    opacity: 0.7;
   }
 }
 }
@@ -189,8 +195,14 @@
         .yellow-button{
           background-color: $yellow;
         }
+        .yellow-button:hover{
+          opacity: 0.7
+        }
         .blue-button{
           background-color: $blue;
+        }
+        .blue-button:hover{
+          opacity: 0.7;
         }
       }
     }
@@ -221,4 +233,7 @@
   text-align:center;
   margin-left:32%;
   margin-bottom: 70px;
+}
+.bottom-button:hover{
+  opacity: 0.7;
 }

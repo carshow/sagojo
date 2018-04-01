@@ -1,0 +1,31 @@
+.account-box__title.edit {
+  margin-top: 30px;
+}
+
+.edit__field {
+  margin-top: 30px;
+  margin-bottom: 50px;
+  label {
+    font-weight: bold;
+  }
+  .edit_form {
+    margin-top: 10px;
+  }
+}
+
+.link_password {
+  text-align: center;
+  font-size: 14px;
+  a {
+    text-decoration: none;
+    color: $light_blue;
+  }
+}
+
+.account-box__field__action.account-box__field__action__sign-in.edit-action {
+  opacity: 0.6;
+}
+
+.account-box__field__facebook{
+
+}

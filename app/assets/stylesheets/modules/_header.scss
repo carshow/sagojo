@@ -147,3 +147,30 @@
   height: 100%;
   width: 100%;
 }
+
+.profile-image:hover{
+  opacity: 0.7;
+}
+.profile-name:hover{
+  opacity: 0.7;
+}
+.sign-up__btn:hover{
+  opacity: 0.7;
+}
+
+.sign-in__btn:hover{
+  opacity: 0.7;
+}
+
+.travel_status {
+  background-color: $light_blue;
+  border-radius: 7px;
+  color: $white;
+  float: left;
+  font-size: 0.8rem;
+  padding: 3px 8px;
+}
+
+.header-utility-02__list li a:hover{
+  opacity: 0.7;
+}
