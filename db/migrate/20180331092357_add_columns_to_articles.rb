@@ -7,7 +7,7 @@ class AddColumnsToArticles < ActiveRecord::Migration[5.0]
     add_column :articles, :period, :integer
     add_column :articles, :destination, :string
     add_column :articles, :company_name, :string
-    add_column :articles, :end_of_date, :datetime
+    add_column :articles, :end_of_date, :date
     add_column :articles, :extra_comment, :string
     remove_column :articles, :application_end_date_y
     remove_column :articles, :application_end_date_m
