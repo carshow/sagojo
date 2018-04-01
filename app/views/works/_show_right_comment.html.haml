@@ -1,6 +1,6 @@
 .side-profile
-  = image_tag ("54b7e1f981b7df7c817af48d1b96ad5e.jpeg"), class: "side-profile__image"
+  = image_tag (article.image_of_person_in_charge), class: "side-profile__image"
   .side-profile__title
     担当者さまから一言
   .side-profile__body
-    持ち味を活かせ！！
+    = article.comment

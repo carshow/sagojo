@@ -1,3 +1,7 @@
+:javascript
+  $(function(){
+    $('.job-body-text').html(article.text);
+  });
 %article.job-detail
   %p.job-label
     PICK
@@ -7,7 +11,7 @@
     %p.job-item
       募集終了まで
       %span.job-item__days
-        1000
+        = deadline_for_article(article.end_of_date)
       %span
         日
       %span.job-item__views
@@ -15,7 +19,7 @@
       %span
         views
   %h1.job-header-title
-    タイトル
+    = article.title
   .job-header-sns
     %ul.sns-list
       %li.sns-list__item
@@ -26,8 +30,8 @@
         = render "buttons/bookmark"
       %li.sns-list__item
         = render "buttons/google"
-  = image_tag ("54b7e1f981b7df7c817af48d1b96ad5e.jpeg"), class: "job-body-image"
-  %p.job-body-text
+  = image_tag (article.image), class: "job-body-image"
+  %p.job-body-text{data: article.text}
   .job-body-sns
     %ul.sns-list.job-body-sns__lower
       %li.sns-list__item
@@ -49,22 +53,24 @@
       %th
         シゴト内容
       %td
-        内容ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+        = article.overview
     %tr
       %th
         リターン（報酬）
       %td
-        報酬
+        ¥
+        = article.price
     %tr
       %th
         応募資格
       %td
-        要求
+        = article.qualification
     %tr
       %th
         募集人数
       %td
-        １０００人
+        = article.requested_number_of_people
+        人
     %tr
       %th
         旅の期間
@@ -74,17 +80,17 @@
       %th
         エリア
       %td
-        エリア
+        = article.destination
     %tr
       %th
         企業名
       %td
-        企業名
+        = article.company.name
     %tr
       %th
         その他
       %td
-        その他
+        = article.extra_comment
   .application-flow
     %h2.application-flow__header
       応募の流れ
@@ -96,7 +102,7 @@
           %dt.flow-data-list__upper
             応募締め切り
           %dd.flow-data-list__lower
-            100
+            = article.end_of_date
       %li.application-flow-list
         %span.flow-list-num
           2
