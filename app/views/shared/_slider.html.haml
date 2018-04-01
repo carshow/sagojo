@@ -1,11 +1,27 @@
 .wrapper
   .slider_wrap
     %ul.slider
-      %li
-        %img{:alt => "", :height => "560", :src =>  "/assets/slide-1-e9d31bcd446f1b7585ff62a178862c2e11ca50b3287db394986e493d3e199be4.jpg", :width => "100%"}/
-      %li
-        %img{:alt => "", :height => "560", :src => "/assets/slide-3-8e4f999a022099ab5accdb01435a8a14a25e987b14c770f1e5cc6e416181f17e.jpg", :width => "100%"}/
-      %li
-        %img{:alt => "", :height => "560", :src => "/assets/slide-2-d92f59765a6d15aeeb24974db4f83c2295a534029a13b63f304616681fa05fef.jpg", :width => "100%"}/
-      %li
-        %img{:alt => "", :height => "560", :src => "/assets/slide-4-ab2973dfb2dd90f1fd09dfc1d104110c53fde94c87ebcca5c91ab0190a9ac5b0.jpg", :width => "100%"}/
+      - @slider_articles.each do |article|
+        = link_to article_path(article) do
+          %li
+            %img{:alt => "", :height => "560", :src => article.image, :width => "100%"}/
+            .slider_main
+              %h2
+                = article.company.name
+              %h3
+                = article.title
+              %span
+                %img{ src: "https://d1te0bovbq6epg.cloudfront.net/common/img/icon-money.svg" }
+                = article.price
+              %p.slider-button
+                シゴト詳細へ
+            .count
+              %img.count__image{ src: "https://d1te0bovbq6epg.cloudfront.net/common/img/slider/img_hukidashi.svg" }
+              %p.count__p
+                あと
+                %p.count__p__num
+                  = deadline_for_article(article.end_of_date)
+                  %span.count__p__day
+                    日
+
+
