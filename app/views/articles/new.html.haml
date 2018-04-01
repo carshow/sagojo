@@ -18,7 +18,7 @@
             %span 記事のイメージ画像を選んでください。
             = f.file_field :image, placeholder: '画像'
             %p.job-body-text
-              = f.text_area :text, placeholder: '本文を入力してください'
+              = f.cktext_area :text, placeholder: '本文を入力してください'
             .job-body-message
               %p.job-body-message__inner
                 さあ、旅を募集してみましょう！
@@ -61,19 +61,19 @@
                   = f.text_field :destination, placeholder: "行き先"
               %tr
                 %th
-                  企業名
-                %td.short_apply
-                  = f.text_field :company_name, placeholder: "企業名"
-              %tr
-                %th
                   募集終了の日付
                 %td
-                  = f.datetime_select :end_of_date, use_month_numbers: true, include_blank: true
+                  = f.date_select :end_of_date, use_month_numbers: true, default: @today
               %tr
                 %th
                   その他
                 %td.apply
                   = f.text_area :extra_comment, placeholder: "その他要望など"
+              %tr
+                %th
+                  担当者様イメージ
+                %td.apply
+                  = f.file_field :image_of_person_in_charge
               %tr
                 %th
                   担当者様からの一言

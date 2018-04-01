@@ -2,8 +2,8 @@
 = render 'shared/articles-header'
 .work-main-content
   .work-left-content
-    = render 'shared/left-content'
-    = link_to 'もっと見る', root_path, class: "see-more-btn"
+    = render partial: 'shared/left-content', collection: @articles, as: :article
+    = paginate(@articles)
 = render 'shared/navi4'
 = render 'shared/navi2'
 .footer

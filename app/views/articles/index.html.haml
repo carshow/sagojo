@@ -1,12 +1,12 @@
 = render 'shared/header'
-= render 'shared/slider'
+= render partial: 'shared/slider', locals: {articles: @slider_articles}
 .main-wrapper
   .main-content-wrapper
     .left-content
       %p 新着のシゴト
     .main-left-content
-      = render 'shared/left-content'
-      = link_to 'もっと見る', root_path, class: "see-more-btn"
+      = render partial: 'shared/left-content', collection: @articles, as: :article
+      = link_to 'もっと見る', articles_recommend_path, class: "see-more-btn"
     = render 'shared/right-content'
 = render 'shared/navi4'
 = render 'shared/navi2'

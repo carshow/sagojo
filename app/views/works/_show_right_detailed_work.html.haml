@@ -2,15 +2,15 @@
   .job-detail-inner.side-job-type
     = image_tag "https://d1te0bovbq6epg.cloudfront.net/common/img/icon-category.svg", class: "job-detail-image job-detail-image--arrange"
     %p.job-detail-text
-      記事執筆
+      = article.overview
   .job-detail-inner.side-job-company
     = image_tag "https://d1te0bovbq6epg.cloudfront.net/common/img/icon-company.svg", class: "job-detail-image"
     %p.job-detail-text
-      会社名
+      = article.company.name
   .job-detail-inner.side-job-money
     = image_tag "https://d1te0bovbq6epg.cloudfront.net/common/img/icon-money.svg", class: "job-detail-image"
     %p.job-detail-text
-      報酬
+      = article.price
   .job-detail-inner.side-job-tag
     = image_tag "https://d1te0bovbq6epg.cloudfront.net/common/img/icon-tag-01.svg", class: "job-detail-image"
     %ul.job-detail-tag
@@ -37,5 +37,5 @@
     %p.application-btn-item.application-apply__lower
       現在
       %span
-        8
+        10000
       人が応募済みです

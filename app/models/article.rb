@@ -14,7 +14,7 @@ class Article < ApplicationRecord
   validates :requested_number_of_people, presence: true
   validates :period, presence: true
   validates :destination, presence: true
-  validates :company_name, presence: true
   validates :end_of_date, presence: true
-  validates :extra_comment, presence: true
+  mount_uploader :image, ImageUploader
+  mount_uploader :image_of_person_in_charge, ImageUploader
 end

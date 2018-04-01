@@ -1,12 +1,18 @@
 class ArticlesController < ApplicationController
   before_action :set_company, only: [:create, :new]
   def index
+    @articles = Article.order("created_at DESC").limit(5)
+    @slider_articles = Article.order("created_at DESC").limit(3)
+    @current_date = Date.current
   end
 
   def recommend
+    @articles = Article.order("created_at DESC").page(params[:page]).per(10)
   end
 
   def show
+    @article = Article.find(params[:id])
+    @articles = Article.limit(2)
   end
 
   def beginner
@@ -43,7 +49,7 @@ class ArticlesController < ApplicationController
      :requested_number_of_people,
      :period,
      :destination,
-     :company_name,
+     :image_of_person_in_charge,
      :end_of_date,
      :extra_comment
     ).merge(company_id: current_company.id)

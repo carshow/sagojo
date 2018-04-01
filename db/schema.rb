@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180401045933) do
+ActiveRecord::Schema.define(version: 20180401112352) do
 
   create_table "applications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "often_visiting_places", limit: 65535
@@ -38,10 +38,10 @@ ActiveRecord::Schema.define(version: 20180401045933) do
     t.integer  "requested_number_of_people"
     t.integer  "period"
     t.string   "destination"
-    t.string   "company_name"
-    t.datetime "end_of_date"
+    t.date     "end_of_date"
     t.string   "extra_comment"
     t.integer  "company_id"
+    t.string   "image_of_person_in_charge"
     t.index ["company_id"], name: "index_articles_on_company_id", using: :btree
   end
 
