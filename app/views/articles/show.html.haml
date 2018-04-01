@@ -1,14 +1,14 @@
 = render 'shared/header'
 .show-main-wrapper
-  = render 'works/show_header'
+  = render partial: 'works/show_header', locals: {article: @article}
   .show-main-content
     .show-left-content
       .show-left-inner
-        = render 'works/show_main_left'
-        = render 'works/show_recommended_work'
+        = render partial: 'works/show_main_left', locals: {article: @article}
+        = render partial: 'works/show_recommended_work', locals: {articles: @articles}
     .show-right-content
-      = render 'works/show_right_comment'
-      = render 'works/show_right_detailed_work'
+      = render partial: 'works/show_right_comment', locals: {article: @article}
+      = render partial: 'works/show_right_detailed_work', locals: {article: @article}
 = render 'shared/navi4'
 = render 'shared/navi2'
 .footer
