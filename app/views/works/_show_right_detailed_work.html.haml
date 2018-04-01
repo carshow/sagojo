@@ -30,8 +30,10 @@
         = link_to "#", class: "tag-list-btn" do
           日本全国
   .side-job-like
-    = link_to "お気に入りに追加", "", class: "application-like__upper side-job-like__btn"
-    / 応募期間過ぎてれば表示しない
+    - if current_user.clips.find_by(article_id: article.id)
+      = link_to "お気に入りに登録済み", dislike_path(article.id), method: :delete, class: "application-dislike__upper side-job-like__btn"
+    - else
+      = link_to "お気に入りに追加" , like_path(article.id), method: :post, class: "application-like__upper side-job-like__btn"
   .side-job-application
     = link_to "応募画面へ進む", "#", class: "application-apply__upper side-job-application__btn"
     %p.application-btn-item.application-apply__lower
@@ -39,3 +41,7 @@
       %span
         10000
       人が応募済みです
+
+.like-link{id: "like-link-#{article.id}"}
+
+
