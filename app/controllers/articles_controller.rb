@@ -1,13 +1,13 @@
 class ArticlesController < ApplicationController
   before_action :set_company, only: [:create, :new]
   def index
-    @articles = Article.order("created_at DESC").limit(5)
-    @slider_articles = Article.order("created_at DESC").limit(3)
+    @articles = Article.order("created_at DESC").limit(5).includes(:company)
+    @slider_articles = Article.order("created_at DESC").limit(3).includes(:company)
     @current_date = Date.current
   end
 
   def recommend
-    @articles = Article.order("created_at DESC").page(params[:page]).per(10)
+    @articles = Article.order("created_at DESC").page(params[:page]).per(10).includes(:company)
   end
 
   def show
