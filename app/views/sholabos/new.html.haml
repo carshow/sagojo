@@ -1,0 +1,25 @@
+= render 'shared/header'
+.show-main-wrapper.topic-path
+  .topic-inner
+    .topic-content
+      = link_to "ホーム", root_path
+      >
+      = link_to "すごい旅研究所", sholabos_latest_path
+      >
+      コラム投稿
+  .show-main-content
+    .show-left-content
+      .show-left-inner
+        %article.job-detail
+          %h1.job-header-title
+            タイトル
+          = image_tag ("54b7e1f981b7df7c817af48d1b96ad5e.jpeg"), class: "job-body-image"
+          %p.job-body-text
+    .show-right-content
+      = render 'sholabos/show_right_comment'
+= render 'shared/navi4'
+= render 'shared/navi2'
+.footer
+  .footer-inner
+    = render 'shared/footer'
+    = render 'shared/footer-copyright'

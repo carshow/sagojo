@@ -1,0 +1,35 @@
+%article.job-detail
+  %p.job-label
+    PICK
+  .job-header-utility
+    %p.travel_status
+      すごい旅の話
+    %p.job-item
+      %span.job-item__views
+        2750000000000
+      %span
+        views
+  %h1.job-header-title
+    タイトル
+  .job-header-sns
+    %ul.sns-list
+      %li.sns-list__item
+        = render "buttons/tweet"
+      %li.sns-list__item
+        = render "buttons/facebook"
+      %li.sns-list__item
+        = render "buttons/bookmark"
+      %li.sns-list__item
+        = render "buttons/google"
+  = image_tag ("54b7e1f981b7df7c817af48d1b96ad5e.jpeg"), class: "job-body-image"
+  %p.job-body-text
+  .job-body-sns
+    %ul.sns-list.job-body-sns__lower
+      %li.sns-list__item
+        = render "buttons/tweet"
+      %li.sns-list__item
+        = render "buttons/facebook"
+      %li.sns-list__item
+        = render "buttons/bookmark"
+      %li.sns-list__item
+        = render "buttons/google"
