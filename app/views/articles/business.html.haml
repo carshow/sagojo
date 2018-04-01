@@ -13,7 +13,7 @@
       %br
       海外や地方に関するお仕事ならHonShoへ
     %p
-      %a.business-header
+      = link_to new_company_registration_path, class: "business-header" do
         今すぐ問い合わせる
 .business-main-content
   .inner
@@ -97,7 +97,7 @@
               調査
             %p
               様々な地域の飲食店や施設、人々の動向などローカルな情報を旅人が足を使って調査いたします。
-            %a.blue-button
+            = link_to new_company_registration_path, class: "blue-button" do
               今すぐ問い合わせる
         %li
           =image_tag("https://d1te0bovbq6epg.cloudfront.net/common/img/business/business_buyer.svg")
@@ -106,7 +106,7 @@
               バイヤー
             %p
               日本では高額だったり手に入らないその土地ならではの商品を旅人が買い付けます。
-            %a.blue-button
+            = link_to new_company_registration_path, class: "blue-button" do
               今すぐ問い合わせる
 
   .business-bottom
@@ -116,7 +116,7 @@
         %br
         まずはお気軽にお問い合わせください。
       %p
-        %a.business-header.bottom-button
+        = link_to new_company_registration_path, class: "business-header bottom-button" do
           今すぐ問い合わせる
 = render 'shared/navi2'
 .footer

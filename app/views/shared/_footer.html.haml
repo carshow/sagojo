@@ -10,11 +10,22 @@
           %li.smaller-li
             = link_to "シゴト", articles_recommend_path
           %li.smaller-li
-            = link_to "すごい旅研究所", showlabo_latest_path
+            = link_to "すごい旅研究所", sholabos_latest_path
           %li.smaller-li
-            %a ログイン
+            = link_to "ログイン" , new_user_session_path
           %li.smaller-li
-            %a 旅人登録
+            = link_to "旅人登録" , new_user_registration_path
+          - unless user_signed_in?
+            %li.smaller-li
+              = link_to "企業様用ログイン",   new_company_session_path
+          - if user_signed_in?
+            %li.smaller-li
+              = link_to "コラム投稿", new_sholabo_path
+          -if company_signed_in?
+            %li.smaller-li
+              = link_to "企業樣ログアウト" , destroy_company_session_path, method: :delete
+            %li.smaller-li
+              = link_to "記事投稿", new_company_article_path(current_company)
       %li.heading-li
         HonShoについて
         %ul.smaller-ul
@@ -29,9 +40,9 @@
           %li.smaller-li
             %a 運営会社について
           %li.smaller-li
-            %a 利用規約
+            = link_to "利用規約", rules_path
           %li.smaller-li
-            %a プライバシーポリシー
+            = link_to "プライバシーポリシー", privacy_path
           %li.smaller-li
             %a お問い合わせ
   .footer-opinion__form

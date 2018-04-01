@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180322105455) do
+ActiveRecord::Schema.define(version: 20180401045933) do
 
   create_table "applications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "often_visiting_places", limit: 65535
@@ -26,16 +26,22 @@ ActiveRecord::Schema.define(version: 20180322105455) do
   end
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "text",                   limit: 65535, null: false
-    t.string   "image",                                null: false
-    t.text     "comment",                limit: 65535, null: false
-    t.integer  "price",                                null: false
-    t.integer  "application_end_date_y",               null: false
-    t.integer  "application_end_date_m",               null: false
-    t.integer  "application_end_date_d",               null: false
+    t.text     "text",                       limit: 65535, null: false
+    t.string   "image",                                    null: false
+    t.text     "comment",                    limit: 65535, null: false
+    t.integer  "price",                                    null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.string   "title"
+    t.string   "overview"
+    t.string   "qualification"
+    t.integer  "requested_number_of_people"
+    t.integer  "period"
+    t.string   "destination"
+    t.string   "company_name"
+    t.datetime "end_of_date"
+    t.string   "extra_comment"
     t.integer  "company_id"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
     t.index ["company_id"], name: "index_articles_on_company_id", using: :btree
   end
 
@@ -64,10 +70,21 @@ ActiveRecord::Schema.define(version: 20180322105455) do
   end
 
   create_table "companies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",       null: false
-    t.string   "email",      null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "name",                                null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_companies_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true, using: :btree
   end
 
   create_table "job_tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
