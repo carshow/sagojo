@@ -1,0 +1,3 @@
+$("<%= @id_name %>").html("<%= j(render partial: 'shared/like_link', locals: {article: @article}) %>")
+$("<%= @star_name %>").AddClass('unlike-btn');
+$("<%= @star_name %>").RemoveClass('like-btn');
