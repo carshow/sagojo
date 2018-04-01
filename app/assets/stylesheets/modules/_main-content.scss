@@ -161,7 +161,6 @@
   font-weight: bold;
 }
 
-// メイン右側
 .right-content {
   width: 340px;
   height: 1538px;
@@ -307,30 +306,11 @@
 }
 
 .like-link {
-  height: 35px;
-  width: 35px;
-  bottom: 60px;
-  left: 20px;
   position: relative;
-  .unlike-btn {
-    height: 30px;
-    width: 30px;
-    background-color: $light-gray;
-    border-radius: 100%;
-    padding: 5px;
-    position: absolute;
-  }
-  .like-btn {
-    height: 30px;
-    width: 30px;
-    background-color: $yellow;
-    border-radius: 100%;
-    padding: 5px;
-    position: absolute;
-  }
 }
-
 .unlike-btn {
+  left: 20px;
+  bottom: 25px;
   height: 30px;
   width: 30px;
   background-color: $light-gray;
@@ -338,3 +318,15 @@
   padding: 5px;
   position: absolute;
 }
+.like-btn {
+  left: 20px;
+  bottom: 25px;
+  height: 30px;
+  width: 30px;
+  background-color: $yellow;
+  border-radius: 100%;
+  padding: 5px;
+  position: absolute;
+}
+
+
