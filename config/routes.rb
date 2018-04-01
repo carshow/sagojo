@@ -16,12 +16,12 @@ Rails.application.routes.draw do
 
   post '/likes/:article_id', to: 'clips#create', as: 'like'
   delete '/likes/:article_id', to: 'clips#destroy', as: 'dislike'
-
   get "sholabos/latest" => "sholabos#index"
   get "FAQ" => "articles#faq"
   get "business" => "articles#business"
   get "rules" => "users#rules"
   get "privacy" => "users#privacy"
   get "identify" => "users#identify"
+  get "user/:id/favorite_list" => "users#favorite_list", as: "favorite_list"
   resources :sholabos
 end
