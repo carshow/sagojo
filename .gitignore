@@ -16,3 +16,10 @@
 # Ignore Byebug command history file.
 .byebug_history
 /config/database.yml
+*.png
+*.jpeg
+*.jpg
+
+!sprites.png
+!nightley_banner02.jpg
+!gahag-0027109997-1.jpg
