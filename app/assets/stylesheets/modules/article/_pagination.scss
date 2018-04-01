@@ -1,5 +1,42 @@
 .pagination {
-  display: block;
-  margin: 60px 0 20px;
-  text-align: center;
+    margin-top: 60px;
+    text-align: center;
+    display: block;
+    border-radius: 0px;
+    li.active{
+      border-color: #deb104;
+      background-color: #ffcb00;
+      a{
+         color: white;
+      }
+    }
+    li {
+      margin-right: 10px;
+      float: left;
+      font-size: 1.1rem;
+      font-weight: bold;
+      display: inline-block;
+      background-color: #fff;
+      a{
+        line-height: 58px;
+        display: inline-block;
+        box-sizing: border-box;
+        width: 45px;
+        height: 60px;
+        text-decoration: none;
+        color: #000;
+        border: 1px solid #ddd;
+      }
+      span{
+        line-height: 58px;
+        display: inline-block;
+        box-sizing: border-box;
+        width: 45px;
+        height: 60px;
+        text-decoration: none;
+        color: #000;
+        border: 1px solid #ddd;
+      }
+    }
+
 }
