@@ -1,9 +1,16 @@
 = render 'shared/header'
 = render 'sholabos/eyecatch'
+= render partial: 'shared/selected_articles', locals: { all_articles: @all_articles }
 .work-main-content
   .work-left-content
-    = render 'shared/left-content'
-    = link_to 'もっと見る', root_path, class: "see-more-btn"
+    = render partial: 'shared/left-content', collection: @articles, as: :article
+    = paginate(@articles)
+  .work-right-content
+    = render partial: 'shared/recommend-right-content', locals: {all_tags: @all_tags, articles: @articles }
+    .category-list
+      %h3.tag_header 人気のタグ
+      %ul.popular_tags
+        = render partial: 'shared/recommend-right-tags_list', collection: @all_tags, as: :tag
 = render 'shared/navi4'
 = render 'shared/navi2'
 .footer

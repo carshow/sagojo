@@ -61,9 +61,10 @@
             %li.last-list
               = link_to 'ログアウト',  destroy_company_session_path, method: :delete, class: 'sign_out'
     - else
-      .header-utility-01
-        %ul.header-utility-list-01
-          %li.sign-in
-            = link_to "ログイン", new_user_session_path, class: "sign-in__btn"
-          %li.sign-up
-            = link_to "旅人登録", new_user_registration_path, class: "sign-up__btn"
+      .header-utility-02
+        .user_menu_btn
+          %ul.header-utility-list-01
+            %li.sign-in
+              = link_to "ログイン", new_user_session_path, class: "sign-in__btn"
+            %li.sign-up
+              = link_to "旅人登録", new_user_registration_path, class: "sign-up__btn"
