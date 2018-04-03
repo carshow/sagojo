@@ -20,6 +20,8 @@
 }
 
 .main-left-content {
+  width: $left-width;
+  display: inline-block;
   float: left;
 }
 
