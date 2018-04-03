@@ -17,4 +17,8 @@ class Article < ApplicationRecord
   validates :end_of_date, presence: true
   mount_uploader :image, ImageUploader
   mount_uploader :image_of_person_in_charge, ImageUploader
+
+  acts_as_taggable
+  acts_as_taggable_on :categories
+
 end
