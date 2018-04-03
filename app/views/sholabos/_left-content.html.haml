@@ -1,0 +1,27 @@
+.thum-column
+  = link_to sholabo_path(sholabo) do
+    .column-image
+      = image_tag(sholabo.image)
+      %p.column-label
+        NEW
+    .column-content
+      .column-category
+        - sholabo.tag_list.each do |tag|
+          %span
+            = tag
+      %h3
+        = sholabo.title
+      .column-utility
+        %p.utility-01
+          = image_tag(sholabo.writer_image)
+        %p.utility-01
+          = sholabo.writer
+        %p.utility-02
+          = Date.today
+          %span
+            120view
+    .column-bottom
+      .column-taglist
+        %ul
+          %li
+            タグ

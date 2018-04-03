@@ -1,0 +1,9 @@
+.right-column-01
+  = link_to sholabo_path(sholabo) do
+    = image_tag(sholabo.image, class: "right-column-01__image")
+    %h3.right-column-01__title
+      = sholabo.title
+    %p.right-column-01__p
+      = l(sholabo.created_at, format: :default)
+      | 3333333 view
+    %p.thum-column-label NEW
