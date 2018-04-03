@@ -14,33 +14,20 @@
   .job-detail-inner.side-job-tag
     = image_tag "https://d1te0bovbq6epg.cloudfront.net/common/img/icon-tag-01.svg", class: "job-detail-image"
     %ul.job-detail-tag
-      %li.job-detail-tag__list
-        = link_to "#", class: "tag-list-btn" do
-          取材あり
-      %li.job-detail-tag__list
-        = link_to "#", class: "tag-list-btn" do
-          写真
-      %li.job-detail-tag__list
-        = link_to "#", class: "tag-list-btn" do
-          記事執筆
-      %li.job-detail-tag__list
-        = link_to "#", class: "tag-list-btn" do
-          ライター
-      %li.job-detail-tag__list
-        = link_to "#", class: "tag-list-btn" do
-          日本全国
+      = render partial: "articles/category_list", locals: {article: article}
   .side-job-like
-    - if current_user.clips.find_by(article_id: article.id)
-      = link_to "お気に入りに登録済み", dislike_path(article.id), method: :delete, class: "application-dislike__upper side-job-like__btn"
-    - else
-      = link_to "お気に入りに追加" , like_path(article.id), method: :post, class: "application-like__upper side-job-like__btn"
-  .side-job-application
-    = link_to "応募画面へ進む", "#", class: "application-apply__upper side-job-application__btn"
-    %p.application-btn-item.application-apply__lower
-      現在
-      %span
-        10000
-      人が応募済みです
+    - if user_signed_in?
+      - if current_user.clips.find_by(article_id: article.id)
+        = link_to "お気に入りに登録済み", dislike_path(article.id), method: :delete, class: "application-dislike__upper side-job-like__btn"
+      - else
+        = link_to "お気に入りに追加" , like_path(article.id), method: :post, class: "application-like__upper side-job-like__btn"
+    .side-job-application
+      = link_to "応募画面へ進む", "#", class: "application-apply__upper side-job-application__btn"
+      %p.application-btn-item.application-apply__lower
+        現在
+        %span
+          10000
+        人が応募済みです
 
 .like-link{id: "like-link-#{article.id}"}
 

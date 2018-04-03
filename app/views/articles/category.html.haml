@@ -6,7 +6,7 @@
     = render partial: 'shared/left-content', collection: @articles, as: :article
     = paginate(@articles)
   .work-right-content
-    = render partial: 'shared/recommend-right-content', locals: {all_tags: @all_tags, articles: @articles }
+    = render partial: 'shared/recommend-right-content', locals: {all_tags: @all_tags}
     .category-list
       %h3.tag_header 人気のタグ
       %ul.popular_tags

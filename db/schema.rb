@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180401112352) do
+ActiveRecord::Schema.define(version: 20180402081207) do
 
   create_table "applications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "often_visiting_places", limit: 65535
@@ -45,21 +45,6 @@ ActiveRecord::Schema.define(version: 20180401112352) do
     t.index ["company_id"], name: "index_articles_on_company_id", using: :btree
   end
 
-  create_table "articles_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "article_id"
-    t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["article_id"], name: "index_articles_categories_on_article_id", using: :btree
-    t.index ["category_id"], name: "index_articles_categories_on_category_id", using: :btree
-  end
-
-  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "clips", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.datetime "created_at", null: false
@@ -85,12 +70,6 @@ ActiveRecord::Schema.define(version: 20180401112352) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_companies_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true, using: :btree
-  end
-
-  create_table "job_tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -128,6 +107,31 @@ ActiveRecord::Schema.define(version: 20180401112352) do
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
+  create_table "taggings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "tag_id"
+    t.string   "taggable_type"
+    t.integer  "taggable_id"
+    t.string   "tagger_type"
+    t.integer  "tagger_id"
+    t.string   "context",       limit: 128
+    t.datetime "created_at"
+    t.index ["context"], name: "index_taggings_on_context", using: :btree
+    t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+    t.index ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+    t.index ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
+    t.index ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy", using: :btree
+    t.index ["taggable_id"], name: "index_taggings_on_taggable_id", using: :btree
+    t.index ["taggable_type"], name: "index_taggings_on_taggable_type", using: :btree
+    t.index ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type", using: :btree
+    t.index ["tagger_id"], name: "index_taggings_on_tagger_id", using: :btree
+  end
+
+  create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string  "name",                       collation: "utf8_bin"
+    t.integer "taggings_count", default: 0
+    t.index ["name"], name: "index_tags_on_name", unique: true, using: :btree
+  end
+
   create_table "travel_plans", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "departure_time",               null: false
     t.string   "return_time",                  null: false
@@ -136,15 +140,6 @@ ActiveRecord::Schema.define(version: 20180401112352) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.index ["profile_id"], name: "index_travel_plans_on_profile_id", using: :btree
-  end
-
-  create_table "user_jobtags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id"
-    t.integer  "job_tag_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["job_tag_id"], name: "index_user_jobtags_on_job_tag_id", using: :btree
-    t.index ["user_id"], name: "index_user_jobtags_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -174,12 +169,8 @@ ActiveRecord::Schema.define(version: 20180401112352) do
   add_foreign_key "applications", "profiles"
   add_foreign_key "applications", "users"
   add_foreign_key "articles", "companies"
-  add_foreign_key "articles_categories", "articles"
-  add_foreign_key "articles_categories", "categories"
   add_foreign_key "clips", "articles"
   add_foreign_key "clips", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "travel_plans", "profiles"
-  add_foreign_key "user_jobtags", "job_tags"
-  add_foreign_key "user_jobtags", "users"
 end

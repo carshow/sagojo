@@ -1,0 +1,16 @@
+.sub-content
+  .sub-content-inner
+    .sub-content-sort
+      %form.sub-content-form
+        %label.sub-content-select
+          %select.sub-content-select-box{ onchange: "location.href=value;" }
+            %option{ value: "/articles/wanted" }募集中
+            %option{ value: "/articles/popular" }人気順
+            %option{ value: "/articles/recommend" }おすすめ順
+            %option{ value: "/articles/latest" }新着順
+            %option{ value: "/articles/finished"}募集終了
+      %p.sub-content-text
+        シゴト数
+        %span.sub-content-num
+          = all_articles.count
+        件

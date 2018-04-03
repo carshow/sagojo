@@ -66,6 +66,12 @@
                   = f.date_select :end_of_date, use_month_numbers: true, default: @today
               %tr
                 %th
+                  記事のカテゴリー
+                %td
+                  = f.label :category_list, "(カンマ区切り）"
+                  = text_field_tag "article[category_list]",  @article.category_list.join(',')
+              %tr
+                %th
                   その他
                 %td.apply
                   = f.text_area :extra_comment, placeholder: "その他要望など"
