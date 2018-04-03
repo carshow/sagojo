@@ -1,6 +1,6 @@
 = render 'shared/header'
 = render 'shared/articles-header'
-= render partial: 'shared/selected_articles', locals: { all_articles: @selected_articles }
+= render partial: 'shared/selected_articles', locals: { all_articles: @all_articles }
 .work-main-content
   .work-left-content
     = render partial: 'shared/left-content', collection: @articles, as: :article
