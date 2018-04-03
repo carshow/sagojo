@@ -1,3 +1,123 @@
-// Place all the styles related to the sholabos controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.post_button{
+  display: inline;
+  input{
+    padding: 20px;
+    width: 200px;
+    color: white;
+    background-color: #ffcb00;
+    border-radius: 100px;
+    margin-left: 35%;
+  }
+}
+
+.column{
+  input{
+    background-color:  #3a94ff;
+  }
+}
+.thum-column{
+  margin-right: 10px;
+  margin-bottom: 20px;
+  float: left;
+  width: 335px;
+  a:link { color: black; }
+  a:visited { color: black; }
+  a:hover { color: black; }
+  a:active { color: black; }
+  .column-image{
+    position: relative;
+    overflow: hidden;
+    img{
+      height: 223px;
+      width: 335px;
+    }
+    p{
+      font-family: 'Arial Rounded MT', 'Arial Rounded MT Bold';
+      font-size: 1.1rem;
+      position: absolute;
+      top: -16px;
+      right: -48px;
+      padding: 32px 40px 1px 32px;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+      vertical-align: bottom;
+      color: #fff;
+      background-color: #f64c44;
+    }
+  }
+  .column-content{
+    background-color: white;
+    padding: 20px;
+    .column-category{
+      height: 30px;
+      span{
+        font-size: 0.5rem;
+        display: inline-block;
+        padding: 6px 9px;
+        color: #fff;
+        border-radius: 7px;
+        background-color: #3a94ff;
+      }
+    }
+    h3{
+      padding-bottom: 20px;
+      font-weight: bolder;
+      line-height: 1.7;
+      height: 72px;
+      margin-top: 10px;
+      letter-spacing: 2px;
+    }
+  }
+  .column-utility{
+    margin-top: 20px;
+    padding-bottom: 30px;
+    .utility-01{
+      font-size: 0.8rem;
+      line-height: 25px;
+      float: left;
+      color: #aeaeae;
+      img{
+
+        box-sizing: border-box;
+        width: 30px;
+        height: 30px;
+        margin-right: 12px;
+        border: 2px solid #ffcb00;
+        border-radius: 50%;
+      }
+      span{
+      }
+    }
+    .utility-02{
+      font-size: 0.8rem;
+      line-height: 25px;
+      float: right;
+      color: #aeaeae;
+    }
+  }
+  .column-bottom{
+    background-color: white;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+    .column-taglist
+      ul{
+        height: 43px;
+        li{
+          font-size: 1rem;
+          position: relative;
+          float: left;
+          margin-right: 15px;
+          margin-bottom: 10px;
+          padding-left: 18px;
+          color: #aeaeae;
+        }
+      }
+    }
+}
+
+.show-left-inner{
+  .clearfix{
+    clear: both;
+  }
+}
+
