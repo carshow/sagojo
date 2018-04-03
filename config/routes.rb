@@ -8,10 +8,17 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'articles#index'
   get "articles/recommend" => "articles#recommend"
+  get "articles/latest" => "articles#latest"
+  get "articles/popular" => "articles#popular"
+  get "articles/wanted" => "articles#wanted"
+  get "articles/finished" => "articles#finished"
+  get "articles/category/:id" => "articles#category", as: "articles_category"
   get "beginner" => "articles#beginner"
-  resources :articles
+
+
+  resources :articles, except: [:create, :new]
   resources :companies, only: [:create, :new] do
-    resources :articles, only: [:create]
+    resources :articles, only: [:create, :new]
   end
 
   post '/likes/:article_id', to: 'clips#create', as: 'like'
