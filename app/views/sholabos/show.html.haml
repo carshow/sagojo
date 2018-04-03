@@ -4,10 +4,12 @@
   .show-main-content
     .show-left-content
       .show-left-inner
-        = render 'sholabos/show_main_left'
-        = render 'works/show_recommended_work'
+        = render partial: 'sholabos/show_main_left', locals: {sholabo: @sholabo}
+        = render partial: "sholabos//show_recommended_sholabo", locals: {sholabos: @sholabos}
+        %p.clearfix
+        = render partial: 'works/show_recommended_work', locals: {articles: @articles}
     .show-right-content
-      = render 'sholabos/show_right_comment'
+      = render partial: 'sholabos/show_right_comment', locals: {sholabo: @sholabo}
 = render 'shared/navi4'
 = render 'shared/navi2'
 .footer
