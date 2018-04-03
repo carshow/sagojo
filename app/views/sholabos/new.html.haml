@@ -1,22 +1,51 @@
 = render 'shared/header'
-.show-main-wrapper.topic-path
-  .topic-inner
-    .topic-content
-      = link_to "ホーム", root_path
-      >
-      = link_to "すごい旅研究所", sholabos_latest_path
-      >
-      コラム投稿
-  .show-main-content
-    .show-left-content
-      .show-left-inner
-        %article.job-detail
-          %h1.job-header-title
-            タイトル
-          = image_tag ("54b7e1f981b7df7c817af48d1b96ad5e.jpeg"), class: "job-body-image"
-          %p.job-body-text
-    .show-right-content
-      = render 'sholabos/show_right_comment'
+.show-main-wrapper
+  .topic-path
+    .topic-inner
+      .topic-content
+        = link_to "ホーム", root_path
+        >
+        = link_to "スゴイ研究所", sholabos_latest_path
+        >
+        コラム投稿
+  = form_for @sholabo do |f|
+    .show-main-content
+      .show-left-content
+        .show-left-inner
+          %article.job-detail
+            %h1.job-header-title
+              = f.text_area :title, placeholder: 'タイトルを入力してください'
+            %span 記事のイメージ画像を選んでください。
+            = f.file_field :image, placeholder: '画像'
+            %p.job-body-text
+              = f.cktext_area :text, placeholder: '本文を入力してください'
+            .job-body-message
+              %p.job-body-message__inner
+                さあ、コラムを書いてみましょう！
+            %table.job-footer-table
+              %tr
+                %th
+                  コラムのカテゴリー
+                %td
+                  = f.label :tag_list, "(カンマ区切り）"
+                  = text_field_tag "sholabo[tag_list]",  @sholabo.tag_list.join(',')
+              %tr
+                %th
+                  ライターイメージ
+                %td.apply
+                  = f.file_field :writer_image
+              %tr
+                %th
+                  名前
+                %td
+                  = f.text_area :writer, placeholder: "名前"
+              %tr
+                %th
+                  自己紹介
+                %td.apply
+                  = f.text_area :comment, placeholder: "一言"
+            %p.post_button.column
+              = f.submit "コラムを投稿する"
 = render 'shared/navi4'
 = render 'shared/navi2'
 .footer
