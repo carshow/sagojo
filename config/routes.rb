@@ -1,19 +1,27 @@
 Rails.application.routes.draw do
   devise_for :companies, controllers: {
   sessions:      'companies/sessions',
-  passwords:     'companies/passwords',
   registrations: 'companies/registrations'
 }
   devise_for :users, controllers: { registrations: "users/registrations"}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
   root 'articles#index'
+
+  # for シゴト views
   get "articles/recommend" => "articles#recommend"
   get "articles/latest" => "articles#latest"
   get "articles/popular" => "articles#popular"
   get "articles/wanted" => "articles#wanted"
   get "articles/finished" => "articles#finished"
+
+  # for searching tags function
   get "articles/category/:id" => "articles#category", as: "articles_category"
-  get "beginner" => "articles#beginner"
+
+  # for beginner view
+  get "beginner" => "headerlinks#beginner"
+  get "FAQ" => "headerlinks#faq"
+  get "business" => "headerlinks#business"
 
 
   resources :articles, except: [:create, :new]
@@ -21,11 +29,12 @@ Rails.application.routes.draw do
     resources :articles, only: [:create, :new]
   end
 
+  # for like funcion
   post '/likes/:article_id', to: 'clips#create', as: 'like'
   delete '/likes/:article_id', to: 'clips#destroy', as: 'dislike'
+
   get "sholabos/latest" => "sholabos#index"
-  get "FAQ" => "articles#faq"
-  get "business" => "articles#business"
+
   get "rules" => "users#rules"
   get "privacy" => "users#privacy"
   get "identify" => "users#identify"
