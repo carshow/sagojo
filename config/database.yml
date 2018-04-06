@@ -51,4 +51,4 @@ production:
   <<: *default
   database: sagosho_production
   username: sagosho
-  password: <%= ENV['SAGOSHO_DATABASE_PASSWORD'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
