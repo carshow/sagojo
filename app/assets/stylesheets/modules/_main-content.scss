@@ -183,12 +183,14 @@
 
 .right-column-01 {
   width: 305px;
-  height: 68px;
   padding: 15px 20px 15px 15px;
   margin-top: 10px;
   background-color: white;
   position: relative;
   overflow: hidden;
+  a:link{ color: black; }
+  a:visited{ color: black; }
+  a:hover{ opacity: 0.5; }
   &__image {
     width: 60px;
     height: 60px;

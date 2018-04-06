@@ -6,6 +6,9 @@ class ArticlesController < ApplicationController
     @articles = Article.order("created_at DESC").limit(5).includes(:company, :taggings)
     @slider_articles = Article.order("created_at DESC").limit(3).includes(:company, :taggings)
     @current_date = Date.current
+
+    @new_sholabos = Sholabo.order("created_at DESC").limit(3)
+    @popular_sholabos = Sholabo.order("id DESC").limit(3)
   end
 
   def recommend
@@ -57,7 +60,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
-    @articles = Article.limit(2).includes(:company, :taggings)
+    @articles = Article.limit(3).includes(:company, :taggings)
   end
 
 
@@ -67,9 +70,11 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    @article.save
-    redirect_to root_path
-
+    if @article.save
+      redirect_to articles_recommend_path
+    else
+      render :new
+    end
   end
 
   private

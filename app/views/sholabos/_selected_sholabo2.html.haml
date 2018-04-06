@@ -1,0 +1,13 @@
+.sub-content
+  .sub-content-inner
+    .sub-content-sort
+      %form.sub-content-form
+        %label.sub-content-select
+          %select.sub-content-select-box{ onchange: "location.href=value;" }
+            %option{ value: "/sholabos/popular" }人気順
+            %option{ value: "/sholabos/latest" }新着順
+      %p.sub-content-text
+        コラム数
+        %span.sub-content-num
+          = all_sholabos.count
+        件

@@ -1,0 +1,19 @@
+= render 'shared/header'
+= render 'sholabos/eyecatch'
+= render partial: 'sholabos/selected_sholabo', locals: { all_sholabos: @all_sholabos }
+.work-main-content
+  .work-left-content
+    = render partial: 'sholabos/left-content', collection: @sholabos, as: :sholabo
+    = paginate(@sholabos)
+  .work-right-content
+    = render partial: 'sholabos/recommend-right-content', locals: {all_tags: @all_tags, sholabos: @sholabos }
+    .category-list
+      %h3.tag_header 人気のタグ
+      %ul.popular_tags
+        = render partial: 'sholabos/recommend-right-tags_list', collection: @all_tags, as: :tag
+= render 'shared/navi4'
+= render 'shared/navi2'
+.footer
+  .footer-inner
+    = render 'shared/footer'
+    = render 'shared/footer-copyright'
