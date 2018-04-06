@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   # for searching tags function
   get "articles/category/:id" => "articles#category", as: "articles_category"
-
+  get "sholabos/category/:id" => "sholabos#category", as: "sholabos_category"
   # for beginner view
   get "beginner" => "headerlinks#beginner"
   get "FAQ" => "headerlinks#faq"
