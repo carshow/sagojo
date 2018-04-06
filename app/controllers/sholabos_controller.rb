@@ -1,16 +1,14 @@
 class SholabosController < ApplicationController
+  before_action :set_tags, only: [:latest, :popular, :category]
 
   def latest
     @sholabos = Sholabo.order("created_at DESC").page(params[:page]).per(10).includes(:taggings)
-    @all_tags = Article.all_tags
-    @all_sholabos = Sholabo.all
+
   end
 
 
   def popular
     @sholabos = Sholabo.order("id DESC").page(params[:page]).per(10).includes(:taggings)
-    @all_tags = Article.all_tags
-    @all_sholabos = Sholabo.all
   end
 
   def new
@@ -33,6 +31,13 @@ class SholabosController < ApplicationController
     @sholabos = Sholabo.limit(4).includes(:taggings)
   end
 
+
+  def category
+    @selected_tag = @all_tags.find(params[:id])
+    @selected_sholabos = @all_sholabos.tagged_with( @selected_tag )
+    @sholabos = Kaminari.paginate_array( @selected_sholabos ).page(params[:page]).per(10)
+  end
+
   private
 
   def column_params
@@ -45,5 +50,10 @@ class SholabosController < ApplicationController
       :comment,
       :tag_list
       )
+  end
+
+   def set_tags
+    @all_tags = Sholabo.all_tags
+    @all_sholabos = Sholabo.all.includes(:taggings)
   end
 end
