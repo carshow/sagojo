@@ -9,7 +9,7 @@ module ArticleHelper
     end
   end
 
-   def sum_tags_articles(all_tags)
+   def sum_tags(all_tags)
     sum = 0
     all_tags.each do |tag|
       sum += tag.taggings_count
