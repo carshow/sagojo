@@ -2,8 +2,9 @@
   = link_to sholabo_path(sholabo) do
     .column-image
       = image_tag(sholabo.image)
-      %p.column-label
-        NEW
+      -if set_new_label(sholabo)
+        %p.column-label
+          NEW
     .column-content
       .column-category
         - sholabo.tag_list.each do |tag|
