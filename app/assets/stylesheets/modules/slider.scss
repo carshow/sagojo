@@ -103,9 +103,15 @@ ul.slider{
     letter-spacing: 1px;
     margin: 0px auto;
     width: 95%;
+    margin-bottom: 30px;
   }
   img{
     margin: 0px auto;
+    display: inline;
+  }
+  span{
+    vertical-align: top;
+    font-weight: bolder;
   }
   .slider-button{
     margin: 0px auto;
@@ -119,4 +125,7 @@ ul.slider{
     box-sizing: border-box;
     text-align: center;
   }
+}
+
+.slider-tag{
 }
