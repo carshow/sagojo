@@ -13,6 +13,8 @@
               %span
                 %img{ src: "https://d1te0bovbq6epg.cloudfront.net/common/img/icon-money.svg" }
                 = article.price
+              %ul.slider-tag
+                = render partial: "articles/category_list", locals: {article: article}
               %p.slider-button
                 シゴト詳細へ
             .count
